@@ -15,6 +15,7 @@ public class InventorySlotHandler : MonoBehaviour
 
 
     [SerializeField] private TMP_Text quantityText;
+    [SerializeField] private TMP_Text nameText;
     [SerializeField] private Image spritePlace;
     void Start()
     {
@@ -25,7 +26,8 @@ public class InventorySlotHandler : MonoBehaviour
     {
         this.itemName = itemName;
         this.maxQuantity = maxQuantity;
-        //this.itemSprite = itemSprite;
+        this.itemSprite = itemSprite;
+        this.nameText.text = itemName;
         isFull = true;
 
         quantityText.text = maxQuantity.ToString();
@@ -37,7 +39,7 @@ public class InventorySlotHandler : MonoBehaviour
         {
             spritePlace.sprite = itemSprite;
         }
-        spritePlace.sprite = itemSprite;
+        //spritePlace.sprite = itemSprite;
     }
 
     // Update is called once per frame
