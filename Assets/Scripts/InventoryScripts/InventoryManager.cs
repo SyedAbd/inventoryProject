@@ -6,9 +6,17 @@ public class InventoryManager : MonoBehaviour
 {
     public GameObject inventoryMenuCanvas;
     public bool isInventoryActive = false;
+    public InventorySlotHandler inventorySlotHandler;
     void Start()
     {
         
+    }
+
+
+    public void AddItem(string itemName, int maxQuantity,Sprite itemSprite)
+    {
+        Debug.Log("Item Name = " + itemName + " quantity = " + maxQuantity + " itemSprite = "+ itemSprite);
+        inventorySlotHandler.AddItem(itemName, maxQuantity, itemSprite);
     }
 
     // Update is called once per frame
