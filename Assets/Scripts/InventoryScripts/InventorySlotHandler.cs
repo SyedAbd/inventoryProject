@@ -7,7 +7,13 @@ using UnityEngine;
 
 public class InventorySlotHandler : MonoBehaviour
 {
-    public string itemName;
+    [SerializeField] private string itemName;
+    public string ItemName
+    {
+        get { return itemName; }
+    }
+
+
     public int maxQuantity;
     public Sprite itemSprite;
     public bool isFull;
@@ -41,8 +47,16 @@ public class InventorySlotHandler : MonoBehaviour
         }
         //spritePlace.sprite = itemSprite;
     }
+    public void AddItem(int maxQuantity) 
+    {
+        this.maxQuantity += maxQuantity;
+        Debug.Log("New quantity " + this.maxQuantity);
+        this.quantityText.text = this.maxQuantity.ToString();
+        //quantityText.text = maxQuantity.ToString();
+        //Remember to put in a check for max amount of items
 
-    // Update is called once per frame
+    }
+    
     void Update()
     {
         

@@ -44,16 +44,44 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    
+
+    //public void AddItem(string itemName, int maxQuantity, Sprite itemSprite)
+    //{
+    //    Debug.Log("Item Name = " + itemName + " quantity = " + maxQuantity + " itemSprite = " + itemSprite);
+
+
+    //    inventorySlotsArray[0].AddItem(itemName, maxQuantity, itemSprite);
+    //}
     public void AddItem(string itemName, int maxQuantity, Sprite itemSprite)
     {
         Debug.Log("Item Name = " + itemName + " quantity = " + maxQuantity + " itemSprite = " + itemSprite);
+        for (int i = 0; i < inventorySlotsArray.Length; i++)
+        {
+            Debug.Log("Check name " + inventorySlotsArray[i].ItemName);
+            if (inventorySlotsArray[i] != null && inventorySlotsArray[i].ItemName == itemName)
+            {
+                Debug.Log("same name found" + inventorySlotsArray[i].ItemName);
+                inventorySlotsArray[i].AddItem( maxQuantity);
+                return; 
+            }
+        }
+        for (int i = 0; i < inventorySlotsArray.Length; i++)
+        {
+            if (inventorySlotsArray[i] == null || inventorySlotsArray[i].ItemName == "")
+            {
+               
+                //inventorySlotsArray[i] = Instantiate(inventorySlotHandlerPrefab, refrenceForIntantiation);
+                inventorySlotsArray[i].AddItem(itemName, maxQuantity, itemSprite);
+                return;
+            }
+        }
 
-
-        inventorySlotsArray[0].AddItem(itemName, maxQuantity, itemSprite);
+        // If the inventory is full, provide feedback (optional)
+        Debug.LogWarning("Inventory is full. Cannot add more items.");
     }
 
-    
+
+
     void Update()
     {
         
