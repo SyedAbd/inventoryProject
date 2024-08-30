@@ -4981,7 +4981,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
-  healthDecayRate: 5
+  healthDecayRate: 1.5
   healthBar: {fileID: 1898182261}
 --- !u!61 &2037620729
 BoxCollider2D:
@@ -5040,7 +5040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca1629e53aa89ab42b0679ae7d9301ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sleepTimer: 100
+  sleepTimer: 200
   restoreHealth: 50
   SleepBar: {fileID: 1678271752}
 --- !u!224 &2066748867 stripped
