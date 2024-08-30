@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public float currentHealth;           
     public float healthDecayRate = 5f;    
     private bool isHealthDecreasing = false;
+    [SerializeField] private Image healthBar;
 
     void Start()
     {
@@ -31,8 +33,11 @@ public class PlayerHealth : MonoBehaviour
             Die();
         }
     }
+    private void FixedUpdate()
+    {
+        healthBar.fillAmount = currentHealth/100;
+    }
 
-    
     public void StartHealthDecay()
     {
         isHealthDecreasing = true;

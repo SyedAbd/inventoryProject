@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHunger : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PlayerHunger : MonoBehaviour
     private float timeSinceLastMeal = 0f;
     [SerializeField] private float hungerTimer = 300f;
     [SerializeField] private float restoreHealth = 30f;
+    [SerializeField] private Image HungerBar;
 
     void Start()
     {
@@ -28,7 +30,10 @@ public class PlayerHunger : MonoBehaviour
             playerHealth.StartHealthDecay();
         }
     }
-
+    private void FixedUpdate()
+    {
+        HungerBar.fillAmount =  ((hungerTimer - timeSinceLastMeal) / hungerTimer);
+    }
     public void RestoreHealth()
     {
         playerHealth.Restore(restoreHealth);
