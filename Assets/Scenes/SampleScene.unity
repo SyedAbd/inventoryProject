@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 42061245}
   - component: {fileID: 42061244}
   m_Layer: 5
-  m_Name: Sleep
+  m_Name: SleepBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3761,7 +3761,7 @@ GameObject:
   - component: {fileID: 1293495617}
   - component: {fileID: 1293495616}
   m_Layer: 5
-  m_Name: Hunger
+  m_Name: HungerBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4371,7 +4371,7 @@ GameObject:
   - component: {fileID: 1898182262}
   - component: {fileID: 1898182261}
   m_Layer: 5
-  m_Name: Heath
+  m_Name: HeathBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
