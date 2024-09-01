@@ -13,6 +13,10 @@ public class Item : MonoBehaviour
     [SerializeField]
     private Sprite thisSprite;
 
+    [TextArea]
+    [SerializeField]
+    private string itemDescription;
+
     [SerializeField]
     private InventoryManager inventoryManagerObject;
     void Start()
@@ -27,7 +31,7 @@ public class Item : MonoBehaviour
         {
             //Debug.Log("Player hit");
             Debug.Log("Sprite :" + thisSprite);
-            inventoryManagerObject.AddItem(itemName, maxQuantity, thisSprite);
+            inventoryManagerObject.AddItem(itemName, maxQuantity, thisSprite, itemDescription);
             Destroy(gameObject);
 
         }

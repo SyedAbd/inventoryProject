@@ -217,7 +217,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Name:'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -590,6 +590,12 @@ MonoBehaviour:
   maxQuantity: 0
   itemSprite: {fileID: 0}
   isFull: 0
+  itemDescription: 
+  selectedSlot: {fileID: 1900422772845967270}
+  isSeletctedPanel: 0
+  itemDesImage: {fileID: 0}
+  itemDesName: {fileID: 0}
+  itemDesDescription: {fileID: 0}
   quantityText: {fileID: 1319231239658061066}
   nameText: {fileID: 1195055208178547431}
   spritePlace: {fileID: 9179729218991485391}

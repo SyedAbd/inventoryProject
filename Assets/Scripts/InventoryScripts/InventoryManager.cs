@@ -52,7 +52,7 @@ public class InventoryManager : MonoBehaviour
 
     //    inventorySlotsArray[0].AddItem(itemName, maxQuantity, itemSprite);
     //}
-    public void AddItem(string itemName, int maxQuantity, Sprite itemSprite)
+    public void AddItem(string itemName, int maxQuantity, Sprite itemSprite, string itemDescription)
     {
         Debug.Log("Item Name = " + itemName + " quantity = " + maxQuantity + " itemSprite = " + itemSprite);
         for (int i = 0; i < inventorySlotsArray.Length; i++)
@@ -71,7 +71,7 @@ public class InventoryManager : MonoBehaviour
             {
                
                 //inventorySlotsArray[i] = Instantiate(inventorySlotHandlerPrefab, refrenceForIntantiation);
-                inventorySlotsArray[i].AddItem(itemName, maxQuantity, itemSprite);
+                inventorySlotsArray[i].AddItem(itemName, maxQuantity, itemSprite, itemDescription);
                 return;
             }
         }
@@ -96,6 +96,14 @@ public class InventoryManager : MonoBehaviour
             inventoryMenuCanvas.SetActive(false); 
             Time.timeScale = 1; 
             isInventoryActive = false; 
+        }
+    }
+    public void UnSelectAllSlots()
+    {
+        for (int i = 0;i < inventorySlotsArray.Length; i++)
+        {
+            inventorySlotsArray[i].selectedSlot.SetActive(false);
+            inventorySlotsArray[i].isSeletctedPanel = false;
         }
     }
 }

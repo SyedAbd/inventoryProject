@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class InventorySlotHandler : MonoBehaviour
+public class InventorySlotHandler : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private string itemName;
     public string ItemName
@@ -15,25 +16,37 @@ public class InventorySlotHandler : MonoBehaviour
 
 
     public int maxQuantity;
+
     public Sprite itemSprite;
     public bool isFull;
+    public string itemDescription;
+
+    public GameObject selectedSlot;
+    public bool isSeletctedPanel;
 
 
+    [SerializeField] private ItemDescriptionPanel itemDescriptionPanel;
 
     [SerializeField] private TMP_Text quantityText;
     [SerializeField] private TMP_Text nameText;
     [SerializeField] private Image spritePlace;
+
+    private InventoryManager inventoryManager;
     void Start()
     {
+        inventoryManager = GameObject.Find("InventoryCanvas").GetComponent<InventoryManager>();
+        itemDescriptionPanel = GameObject.Find("ItemDescriptionPanel").GetComponent<ItemDescriptionPanel>();
         
     }
 
-    public void AddItem(string itemName, int maxQuantity, Sprite itemSprite)
+    public void AddItem(string itemName, int maxQuantity, Sprite itemSprite, string itemDescription)
     {
         this.itemName = itemName;
         this.maxQuantity = maxQuantity;
         this.itemSprite = itemSprite;
         this.nameText.text = itemName;
+        this.itemDescription = itemDescription;
+        
         isFull = true;
 
         quantityText.text = maxQuantity.ToString();
@@ -60,5 +73,30 @@ public class InventorySlotHandler : MonoBehaviour
     void Update()
     {
         
+    }
+    public void OnLeftClick()
+    {
+
+        inventoryManager.UnSelectAllSlots();
+        selectedSlot.SetActive(true);
+        this.isSeletctedPanel = true;
+        itemDescriptionPanel.ShowDescriptionOf(itemName,itemSprite,itemDescription);
+
+    }
+    public void OnRightClick()
+    {
+
+    }
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if(eventData.button == PointerEventData.InputButton.Left)
+        {
+            OnLeftClick();
+        }
+
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            OnRightClick();
+        }
     }
 }

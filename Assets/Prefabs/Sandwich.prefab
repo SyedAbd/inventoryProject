@@ -148,6 +148,8 @@ MonoBehaviour:
   itemName: Sandwich
   maxQuantity: 2
   thisSprite: {fileID: 21300000, guid: 252dc0e12997f63419e8555afccaf168, type: 3}
+  itemDescription: this is something to eat which will give you a bot of health and
+    save you from starving
   inventoryManagerObject: {fileID: 0}
 --- !u!58 &2086929593989078659
 CircleCollider2D:
