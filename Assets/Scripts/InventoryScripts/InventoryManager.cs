@@ -11,6 +11,8 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private int numberOfSlots = 5; 
     private InventorySlotHandler[] inventorySlotsArray; 
 
+    public ItemScriptableObject[] itemScriptableObjectsArray;
+
     void Start()
     {
         if (inventorySlotHandlerPrefab != null && refrenceForIntantiation != null)
@@ -52,6 +54,18 @@ public class InventoryManager : MonoBehaviour
 
     //    inventorySlotsArray[0].AddItem(itemName, maxQuantity, itemSprite);
     //}
+
+    public void UseItem(string itemName)
+    {
+        Debug.Log("Item is being used ");
+        for(int i = 0;i < itemScriptableObjectsArray.Length; i++)
+        {
+            if (itemScriptableObjectsArray[i].itemName == itemName)
+            {
+                itemScriptableObjectsArray[i].UseItem();
+            }
+        }
+    }
     public void AddItem(string itemName, int maxQuantity, Sprite itemSprite, string itemDescription)
     {
         Debug.Log("Item Name = " + itemName + " quantity = " + maxQuantity + " itemSprite = " + itemSprite);

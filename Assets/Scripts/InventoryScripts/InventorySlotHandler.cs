@@ -76,7 +76,12 @@ public class InventorySlotHandler : MonoBehaviour, IPointerClickHandler
     }
     public void OnLeftClick()
     {
-
+        if (isSeletctedPanel)
+        {
+            Debug.Log("the item is selected and use is called ");
+            inventoryManager.UseItem(itemName);
+        }
+            
         inventoryManager.UnSelectAllSlots();
         selectedSlot.SetActive(true);
         this.isSeletctedPanel = true;

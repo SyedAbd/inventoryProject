@@ -601,6 +601,8 @@ MonoBehaviour:
   inventorySlotHandlerPrefab: {fileID: 7070627835041583850, guid: af6342947b7f5eb4983d5c95e073ec37, type: 3}
   refrenceForIntantiation: {fileID: 1951990798}
   numberOfSlots: 4
+  itemScriptableObjectsArray:
+  - {fileID: 11400000, guid: bceef4c72d55775458843fafaee9176b, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -5279,8 +5281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e16bb9d01f5be4c9b90ca2d7889948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hungerTimer: 50
-  restoreHealth: 30
+  hungerTimer: 200
   HungerBar: {fileID: 1840970777}
 --- !u!114 &2037620728
 MonoBehaviour:

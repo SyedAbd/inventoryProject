@@ -13,8 +13,8 @@ public class EatingFood : MonoBehaviour
             if (playerEating != null)
             {
                 Debug.Log("Player is eating \n");
-                playerEating.Eat();
-                playerEating.RestoreHealth();
+                //playerEating.Eat();
+                //playerEating.RestoreHealthAndHunger();
                 Destroy(gameObject); 
             }
         }

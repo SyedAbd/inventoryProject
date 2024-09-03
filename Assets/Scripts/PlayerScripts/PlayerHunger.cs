@@ -9,7 +9,7 @@ public class PlayerHunger : MonoBehaviour
     private PlayerHealth playerHealth; 
     private float timeSinceLastMeal = 0f;
     [SerializeField] private float hungerTimer = 300f;
-    [SerializeField] private float restoreHealth = 30f;
+    //[SerializeField] private float restoreHealth = 30f;
     [SerializeField] private Image HungerBar;
 
     void Start()
@@ -34,8 +34,10 @@ public class PlayerHunger : MonoBehaviour
     {
         HungerBar.fillAmount =  ((hungerTimer - timeSinceLastMeal) / hungerTimer);
     }
-    public void RestoreHealth()
+    public void RestoreHealthAndHunger(float restoreHealth)
     {
+        Debug.Log("Restoring health and hunger");
+        Eat();
         playerHealth.Restore(restoreHealth);
     }
     public void Eat()
