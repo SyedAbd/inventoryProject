@@ -5281,7 +5281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e16bb9d01f5be4c9b90ca2d7889948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hungerTimer: 200
+  hungerTimer: 50
   HungerBar: {fileID: 1840970777}
 --- !u!114 &2037620728
 MonoBehaviour:
@@ -5455,6 +5455,14 @@ PrefabInstance:
     - target: {fileID: 622751479247090041, guid: 7f0a83a06723d5d4688c3ac738f6d08d, type: 3}
       propertyPath: m_Name
       value: Sandwich
+      objectReference: {fileID: 0}
+    - target: {fileID: 622751479247090041, guid: 7f0a83a06723d5d4688c3ac738f6d08d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502474360048022371, guid: 7f0a83a06723d5d4688c3ac738f6d08d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7614115798629481345, guid: 7f0a83a06723d5d4688c3ac738f6d08d, type: 3}
       propertyPath: m_LocalPosition.x
