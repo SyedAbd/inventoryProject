@@ -92,6 +92,38 @@ public class InventorySlotHandler : MonoBehaviour, IPointerClickHandler
     {
 
     }
+    public void UpdateUI()
+    {
+        quantityText.text = maxQuantity > 0 ? maxQuantity.ToString() : "";  // Clear text if empty
+        spritePlace.sprite = itemSprite;
+        nameText.text = !string.IsNullOrEmpty(itemName) ? itemName : ""; // Clear name if empty
+    }
+    public void UseItem()
+    {
+        maxQuantity--;
+
+        if (maxQuantity <= 0)
+        {
+            ClearSlot();
+        }
+        else
+        {
+            UpdateUI();
+        }
+    }
+
+    private void ClearSlot()
+    {
+        itemName = string.Empty;
+        maxQuantity = 0;
+        itemSprite = null;
+        itemDescription = string.Empty;
+        isFull = false;
+
+        UpdateUI();
+        //gameObject.SetActive(false);
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if(eventData.button == PointerEventData.InputButton.Left)

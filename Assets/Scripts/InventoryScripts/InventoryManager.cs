@@ -63,8 +63,30 @@ public class InventoryManager : MonoBehaviour
             if (itemScriptableObjectsArray[i].itemName == itemName)
             {
                 itemScriptableObjectsArray[i].UseItem();
+                inventorySlotsArray[InventoryFindItem(itemName)].UseItem();
             }
         }
+    }
+
+
+
+    public int InventoryFindItem(string itemName)
+    {
+        int i;
+        for ( i = 0; i < inventorySlotsArray.Length; i++)
+        {
+            
+            if (inventorySlotsArray[i] != null && inventorySlotsArray[i].ItemName == itemName)
+            {
+                Debug.Log("same name found" + inventorySlotsArray[i].ItemName);
+               
+                return i;
+            }
+        }
+
+
+
+        return -1;
     }
     public void AddItem(string itemName, int maxQuantity, Sprite itemSprite, string itemDescription)
     {
