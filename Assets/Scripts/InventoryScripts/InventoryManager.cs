@@ -9,7 +9,9 @@ public class InventoryManager : MonoBehaviour
     public InventorySlotHandler inventorySlotHandlerPrefab; 
     [SerializeField] private Transform refrenceForIntantiation; 
     [SerializeField] private int numberOfSlots = 5; 
-    private InventorySlotHandler[] inventorySlotsArray; 
+    private InventorySlotHandler[] inventorySlotsArray;
+
+    
 
     public ItemScriptableObject[] itemScriptableObjectsArray;
 
@@ -62,13 +64,26 @@ public class InventoryManager : MonoBehaviour
         {
             if (itemScriptableObjectsArray[i].itemName == itemName)
             {
-                itemScriptableObjectsArray[i].UseItem();
+                itemScriptableObjectsArray[i].SetFunctionality(itemName);
+                itemScriptableObjectsArray[i].UseItem(GameObject.Find("Player"));
                 inventorySlotsArray[InventoryFindItem(itemName)].UseItem();
             }
         }
     }
+    private void OnEnable()
+    {
+        Item.OnItemCollected += AddItemToInventory;
+    }
 
-
+    private void OnDisable()
+    {
+        Item.OnItemCollected -= AddItemToInventory;
+    }
+    private void AddItemToInventory(ItemScriptableObject item)
+    {
+        Debug.Log($"Adding item to inventory: {item.itemName}");
+        AddItem(item.itemName, item.quantity, item.icon, item.description);
+    }
 
     public int InventoryFindItem(string itemName)
     {
